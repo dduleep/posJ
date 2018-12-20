@@ -41,7 +41,7 @@
         }
         }
 
-        PosApps.initEOD("PaymentSense",rootWindow);
+        // PosApps.initEOD("PaymentSense",rootWindow);
 
 
 

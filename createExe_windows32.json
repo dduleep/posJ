@@ -1,0 +1,28 @@
+{
+    "platform": "windows32",
+    "jdk": "D:/softwares/java/jdk1.8.191",
+    "executable": "posJ",
+    "classpath": [
+        ""
+    ],
+    "removelibs": [
+        "myapp.jar"
+    ],
+    "mainclass": "com.openbravo.pos.forms.StartPOS",
+    "vmargs": [
+       "Xmx1G"
+    ],
+    "resources": [
+        "target/Bonus",
+        "target/generated-sources",
+        "target/lib",
+        "target/licensing",
+        "target/locales",
+        "target/maven-archiver",
+        "target/reports",
+        "target/surefire",
+        "target/surefire"
+    ],
+    "minimizejre": "",
+    "output": "out-mac"
+}

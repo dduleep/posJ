@@ -139,14 +139,14 @@ public class TicketParser extends DefaultHandler {
                 SAXParserFactory spf = SAXParserFactory.newInstance();
                 m_sp = spf.newSAXParser();
             }
-            m_sp.parse(new InputSource(in), this);
+//            m_sp.parse(new InputSource(in), this);
                         
         } catch (ParserConfigurationException ePC) {
             throw new TicketPrinterException(LocalRes.getIntString("exception.parserconfig") , ePC);
         } catch (SAXException eSAX) {
             throw new TicketPrinterException(LocalRes.getIntString("exception.xmlfile") , eSAX);
-        } catch (IOException eIO) {
-            throw new TicketPrinterException(LocalRes.getIntString("exception.iofile") , eIO);
+//        } catch (IOException eIO) {
+//            throw new TicketPrinterException(LocalRes.getIntString("exception.iofile") , eIO);
         }
     }    
     

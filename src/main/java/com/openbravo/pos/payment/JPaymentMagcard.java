@@ -32,7 +32,7 @@ import java.awt.Component;
 public class JPaymentMagcard extends javax.swing.JPanel implements JPaymentInterface {
     
     private PaymentPanel m_cardpanel;
-//    private final PaymentGateway m_paymentgateway;
+    private final PaymentGateway m_paymentgateway;
     private final JPaymentNotifier m_notifier;
     private String transaction;
     
@@ -46,16 +46,17 @@ public class JPaymentMagcard extends javax.swing.JPanel implements JPaymentInter
         m_notifier = notifier;
         
 //        m_paymentgateway = PaymentGatewayFac.getPaymentGateway(app.getProperties());
+        m_paymentgateway = null;
         
-//        if (m_paymentgateway == null) {
+        if (m_paymentgateway == null) {
             jlblMessage.setText(AppLocal.getIntString("message.nopaymentgateway"));            
-//        } else {           
-//            // Se van a poder efectuar pagos con tarjeta
-//            m_cardpanel = PaymentPanelFac.getPaymentPanel(app.getProperties().getProperty("payment.magcardreader"), notifier);
-//            add(m_cardpanel.getComponent(), BorderLayout.CENTER);
-//            jlblMessage.setText(null);
-//            // jlblMessage.setText(AppLocal.getIntString("message.nocardreader"));
-//        }
+        } else {           
+            // Se van a poder efectuar pagos con tarjeta
+            m_cardpanel = PaymentPanelFac.getPaymentPanel(app.getProperties().getProperty("payment.magcardreader"), notifier);
+            add(m_cardpanel.getComponent(), BorderLayout.CENTER);
+            jlblMessage.setText(null);
+            // jlblMessage.setText(AppLocal.getIntString("message.nocardreader"));
+        }
     }
     
     /**
@@ -88,7 +89,7 @@ public class JPaymentMagcard extends javax.swing.JPanel implements JPaymentInter
 
         PaymentInfoMagcard payinfo = m_cardpanel.getPaymentInfoMagcard();
 
-//        m_paymentgateway.execute(payinfo);
+        m_paymentgateway.execute(payinfo);
         if (payinfo.isPaymentOK()) {
             return payinfo;
         } else {
